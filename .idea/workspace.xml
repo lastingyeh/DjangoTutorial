@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="941308c6-41f1-4167-b82e-a1ffdeb2df8f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md" />
       <change beforePath="$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md" />
+      <change beforePath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part1/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part1/README.md" />
+      <change beforePath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part2/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part2/README.md" />
+      <change beforePath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part3/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part3/README.md" />
+      <change beforePath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part4/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part4/README.md" />
+      <change beforePath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part5/README.md" afterPath="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part5/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,12 +20,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="230">
-                <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+              <first_editor relative-caret-position="3183">
+                <caret line="146" column="88" lean-forward="false" selection-start-line="145" selection-start-column="4" selection-end-line="146" selection-end-column="88" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -31,8 +37,73 @@
         <entry file="file://$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="418">
-                <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="5" />
+              <first_editor relative-caret-position="506">
+                <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part1/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="585">
+                <caret line="75" column="10" lean-forward="false" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part2/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="437">
+                <caret line="259" column="0" lean-forward="true" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part3/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="135">
+                <caret line="173" column="2" lean-forward="false" selection-start-line="173" selection-start-column="2" selection-end-line="173" selection-end-column="2" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part4/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-95">
+                <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part5/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="519">
+                <caret line="243" column="22" lean-forward="false" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -42,6 +113,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&amp;gt;&amp;gt;&amp;gt;</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -50,14 +126,19 @@
       <list>
         <option value="$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md" />
         <option value="$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md" />
+        <option value="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part1/README.md" />
+        <option value="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part2/README.md" />
+        <option value="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part3/README.md" />
+        <option value="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part4/README.md" />
+        <option value="$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part5/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1453" />
-    <option name="y" value="26" />
-    <option name="width" value="1567" />
-    <option name="height" value="863" />
+    <option name="x" value="14" />
+    <option name="y" value="23" />
+    <option name="width" value="1502" />
+    <option name="height" value="811" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -99,6 +180,36 @@
               <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
               <item name="Quick_install_guide" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DjangoTutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoTutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
+              <item name="Writing_your_first_Django_app_part1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoTutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoTutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
+              <item name="Writing_your_first_Django_app_part2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoTutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoTutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
+              <item name="Writing_your_first_Django_app_part3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoTutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoTutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
+              <item name="Writing_your_first_Django_app_part4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoTutorial" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoTutorial" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBooks" type="462c0819:PsiDirectoryNode" />
+              <item name="Writing_your_first_Django_app_part5" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -138,10 +249,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1600" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="811" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22419253" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16490486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -168,22 +279,77 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md">
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="418">
-            <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="5" />
+          <first_editor relative-caret-position="3183">
+            <caret line="146" column="88" lean-forward="false" selection-start-line="145" selection-start-column="4" selection-end-line="146" selection-end-column="88" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NoteBooks/Django_at_a_glance/README.md">
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Quick_install_guide/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="230">
-            <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <first_editor relative-caret-position="506">
+            <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part1/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="585">
+            <caret line="75" column="10" lean-forward="false" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part3/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="173" column="2" lean-forward="false" selection-start-line="173" selection-start-column="2" selection-end-line="173" selection-end-column="2" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part2/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="437">
+            <caret line="259" column="0" lean-forward="true" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part4/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-95">
+            <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoteBooks/Writing_your_first_Django_app_part5/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="519">
+            <caret line="243" column="22" lean-forward="false" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
             <folding />
           </first_editor>
           <second_editor />

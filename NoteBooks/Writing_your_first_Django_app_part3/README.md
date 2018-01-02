@@ -11,14 +11,16 @@
 
     def vote(request, question_id):
         return HttpResponse("You're voting on question %s." % question_id)
-    Wire these new views into the polls.urls module by adding the following path() calls:
+
+        
+Write these new views into the polls.urls module by adding the following path() calls:
 
 `polls/urls.py`
 
     from django.urls import path
 
     from . import views
-
+    
     urlpatterns = [
         # ex: /polls/
         path('', views.index, name='index'),
@@ -35,110 +37,111 @@
 
 `polls/views.py`
 
-1. modify new index() view, which displays the latest 5 poll questions in the system, separated by commas, according to publication date:
+ 1. modify new index() view, which displays the latest 5 poll questions in the system, separated by commas, according to publication date:
 
-    from django.http import HttpResponse
-    from .models import Question
-
-    def index(request):
-        latest_question_list = Question.objects.order_by('-pub_date')[:5]
-        output = ', '.join([q.question_text for q in latest_question_list])
-        return HttpResponse(output)
+        from django.http import HttpResponse
+        
+        from .models import Question
+    
+        def index(request):
+            latest_question_list = Question.objects.order_by('-pub_date')[:5]
+            output = ', '.join([q.question_text for q in latest_question_list])
+            return HttpResponse(output)
 
 2. Create template
 
-2.1 The default settings file configures a DjangoTemplates backend whose APP_DIRS option is set to True. 
-By convention DjangoTemplates looks for a “templates” subdirectory in each of the INSTALLED_APPS.
+    2.1 The default settings file configures a DjangoTemplates backend whose APP_DIRS option is set to True. 
+    By convention DjangoTemplates looks for a “templates” subdirectory in each of the INSTALLED_APPS.
 
-`polls/templates/polls/index.html`
+    `polls/templates/polls/index.html`
 
-    {% if latest_question_list %}
-        <ul>
-        {% for question in latest_question_list %}
-            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+                <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
 
-2.2 update our index view in polls/views.py to use the template:
+    2.2 update our index view in polls/views.py to use the template:
 
-`polls/views.py`
+    `polls/views.py`
 
-    from django.http import HttpResponse
-    from django.template import loader
-    from .models import Question
+        from django.http import HttpResponse
+        from django.template import loader
+        from .models import Question
+    
+        def index(request):
+            latest_question_list = Question.objects.order_by('-pub_date')[:5]
+            template = loader.get_template('polls/index.html')
+            context = {
+                'latest_question_list': latest_question_list,
+            }
+            return HttpResponse(template.render(context, request))
 
-    def index(request):
-        latest_question_list = Question.objects.order_by('-pub_date')[:5]
-        template = loader.get_template('polls/index.html')
-        context = {
-            'latest_question_list': latest_question_list,
-        }
-        return HttpResponse(template.render(context, request))
+    2.3 update our index view in polls/views.py to use the template:
 
-2.3 update our index view in polls/views.py to use the template:
+    `polls/views.py`
 
-`polls/views.py`
+        from django.http import HttpResponse
+        from django.template import loader
+    
+        from .models import Question
+    
+        def index(request):
+            latest_question_list = Question.objects.order_by('-pub_date')[:5]
+            template = loader.get_template('polls/index.html')
+            context = {
+                'latest_question_list': latest_question_list,
+            }
+            return HttpResponse(template.render(context, request))
 
-    from django.http import HttpResponse
-    from django.template import loader
+    2.4 full index() view rewritten as use shortcut: render()
 
-    from .models import Question
+    `polls/views.py`
 
-    def index(request):
-        latest_question_list = Question.objects.order_by('-pub_date')[:5]
-        template = loader.get_template('polls/index.html')
-        context = {
-            'latest_question_list': latest_question_list,
-        }
-        return HttpResponse(template.render(context, request))
+        from django.shortcuts import render
+        from .models import Question
+    
+        def index(request):
+            latest_question_list = Question.objects.order_by('-pub_date')[:5]
+            context = {'latest_question_list': latest_question_list}
+            return render(request, 'polls/index.html', context)
 
-2.4 full index() view rewritten as use shortcut: render()
+    2.5 Raising a 404 error
 
-`polls/views.py`
+    `polls/views.py`
 
-    from django.shortcuts import render
-    from .models import Question
+        from django.http import Http404
+        from django.shortcuts import render
+        from .models import Question
+        # ...
+        def detail(request, question_id):
+            try:
+                question = Question.objects.get(pk=question_id)
+            except Question.DoesNotExist:
+                raise Http404("Question does not exist")
+            return render(request, 'polls/detail.html', {'question': question})
 
-    def index(request):
-        latest_question_list = Question.objects.order_by('-pub_date')[:5]
-        context = {'latest_question_list': latest_question_list}
-        return render(request, 'polls/index.html', context)
+    `polls/templates/polls/detail.html`
 
-2.5 Raising a 404 error
+        {{ question }}
 
-`polls/views.py`
+    2.6 A shortcut: get_object_or_404()
 
-    from django.http import Http404
-    from django.shortcuts import render
-    from .models import Question
-    # ...
-    def detail(request, question_id):
-        try:
-            question = Question.objects.get(pk=question_id)
-        except Question.DoesNotExist:
-            raise Http404("Question does not exist")
-        return render(request, 'polls/detail.html', {'question': question})
+    `polls/views.py`
 
-`polls/templates/polls/detail.html`
+        from django.shortcuts import get_object_or_404, render
+    
+        from .models import Question
+        # ...
+        def detail(request, question_id):
+            question = get_object_or_404(Question, pk=question_id)
+            return render(request, 'polls/detail.html', {'question': question})
 
-    {{ question }}
-
-2.6 A shortcut: get_object_or_404()
-
-`polls/views.py`
-
-    from django.shortcuts import get_object_or_404, render
-
-    from .models import Question
-    # ...
-    def detail(request, question_id):
-        question = get_object_or_404(Question, pk=question_id)
-        return render(request, 'polls/detail.html', {'question': question})
-
-* There’s also a get_list_or_404() function – except using filter() instead of get(). It raises Http404 if the list is empty.
+    *There’s also a get_list_or_404() function – except using filter() instead of get(). It raises Http404 if the list is empty.*
 
 ------------------------------------------------------------------------------------
 ### Use the template system
@@ -162,13 +165,13 @@ By convention DjangoTemplates looks for a “templates” subdirectory in each o
 
 * URL definition as specified in the polls.urls
 
-the 'name' value as called by the {% url %} template tag
-
-    path('<int:question_id>/', views.detail, name='detail'),
+        the 'name' value as called by the {% url %} template tag
+    
+        path('<int:question_id>/', views.detail, name='detail'),
 
 * If you want to change the URL of the polls detail view to something else, perhaps to something like polls/specifics/12/ instead of doing it in the template (or templates) you would change it in polls/urls.py:
 
-added the word 'specifics'
+* added the word 'specifics'
 
     path('specifics/<int:question_id>/', views.detail, name='detail'),
 
@@ -177,13 +180,13 @@ added the word 'specifics'
 
 1. add namespace
 
-`polls/urls.py`
-
-    app_name = 'polls'
+    `polls/urls.py`
+    
+        app_name = 'polls'
 
 2. change template from:
 
-`polls/templates/polls/index.html`
-
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    `polls/templates/polls/index.html`
     
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        

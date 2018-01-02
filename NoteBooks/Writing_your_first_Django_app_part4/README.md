@@ -82,64 +82,81 @@
 ------------------------------------------------------------------------------------
 ### Process Flow
 
-(browser) http://127.0.0.1:8000/polls/1/ -> (polls/views) views.detail -> 
-(templates/polls) polls/detail.html -> 'Submit' -> /polls/1/vote/ -> (polls/views) views.vote
--> 'OK' -> (polls/views) views.results -> (templates/polls) polls/results.html
--> 'Error' -> (templates/polls) polls/detail.html
+s1. (browser) http://127.0.0.1:8000/polls/1/ 
+
+s2. (polls/views) views.detail
+
+s3. (templates/polls) polls/detail.html
+
+s4. 'Submit'
+
+s5. /polls/1/vote/ 
+
+s6. (polls/views) views.vote
+
+s7. (try...) 'OK' 
+
+s8. (polls/views) views.results 
+
+s9. (templates/polls) polls/results.html
+
+s10. (except:...) 'Error'
+
+s11. (templates/polls) polls/detail.html
 
 ------------------------------------------------------------------------------------
 ### Avoiding race conditions
 
 If two users of your website try to vote at exactly the same time, this might go wrong: The same value, let’s say 42, will be retrieved for votes. Then, for both users the new value of 43 is computed and saved, but 44 would be the expected value.
 
-`Avoiding race conditions using F() : https://docs.djangoproject.com/en/2.0/ref/models/expressions/#avoiding-race-conditions-using-f`
+[Avoiding race conditions using F()](https://docs.djangoproject.com/en/2.0/ref/models/expressions/#avoiding-race-conditions-using-f)
 
 ------------------------------------------------------------------------------------
 ### Use generic views: Less code is better
 
 1. Amend URLconf
 
-`polls/urls.py`
+    `polls/urls.py`
 
-    from django.urls import path
-
-    from . import views
-
-    app_name = 'polls'
-    urlpatterns = [
-        path('', views.IndexView.as_view(), name='index'),
-        path('<int:pk>/', views.DetailView.as_view(), name='detail'),
-        path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
-        path('<int:question_id>/vote/', views.vote, name='vote'),
-    ]
+        from django.urls import path
+    
+        from . import views
+    
+        app_name = 'polls'
+        urlpatterns = [
+            path('', views.IndexView.as_view(), name='index'),
+            path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+            path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+            path('<int:question_id>/vote/', views.vote, name='vote'),
+        ]
 
 2. Amend views
 
-`polls/views.py`
+    `polls/views.py`
 
-    from django.shortcuts import get_object_or_404, render
-    from django.http import HttpResponseRedirect
-    from django.urls import reverse
-    from django.views import generic
-
-    from .models import Choice, Question
-
-    class IndexView(generic.ListView):
-        template_name = 'polls/index.html'
-        context_object_name = 'latest_question_list'
-
-        def get_queryset(self):
-            """Return the last five published questions."""
-            return Question.objects.order_by('-pub_date')[:5]
-
-    class DetailView(generic.DetailView):
-        model = Question
-        template_name = 'polls/detail.html'
-
-
-    class ResultsView(generic.DetailView):
-        model = Question
-        template_name = 'polls/results.html'
-
-    def vote(request, question_id):
-        ... # same as above, no changes needed.
+        from django.shortcuts import get_object_or_404, render
+        from django.http import HttpResponseRedirect
+        from django.urls import reverse
+        from django.views import generic
+    
+        from .models import Choice, Question
+    
+        class IndexView(generic.ListView):
+            template_name = 'polls/index.html'
+            context_object_name = 'latest_question_list'
+    
+            def get_queryset(self):
+                """Return the last five published questions."""
+                return Question.objects.order_by('-pub_date')[:5]
+    
+        class DetailView(generic.DetailView):
+            model = Question
+            template_name = 'polls/detail.html'
+    
+    
+        class ResultsView(generic.DetailView):
+            model = Question
+            template_name = 'polls/results.html'
+    
+        def vote(request, question_id):
+            ... # same as above, no changes needed.

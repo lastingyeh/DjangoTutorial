@@ -15,10 +15,10 @@
 ------------------------------------------------------------------------------------
 ### check version of Django
 
-__> python__
+*> python*
 
-__>>> import django__
+*>>> import django*
 
-__>>> django.get_version()__
+*>>> django.get_version()*
 
 '2.0' 
