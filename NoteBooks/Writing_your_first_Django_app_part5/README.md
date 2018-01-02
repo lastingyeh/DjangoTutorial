@@ -2,95 +2,115 @@
 
 1. Create a test to expose the bug
   
-`polls/tests.py`
+    `polls/tests.py`
 
-    import datetime
-
-    from django.utils import timezone
-    from django.test import TestCase
-
-    from .models import Question
-
-
-    class QuestionModelTests(TestCase):
-
-        def test_was_published_recently_with_future_question(self):
-            """
-            was_published_recently() returns False for questions whose pub_date
-            is in the future.
-            """
-            time = timezone.now() + datetime.timedelta(days=30)
-            future_question = Question(pub_date=time)
-            self.assertIs(future_question.was_published_recently(), False)
+        import datetime
+    
+        from django.utils import timezone
+        from django.test import TestCase
+    
+        from .models import Question
+    
+    
+        class QuestionModelTests(TestCase):
+    
+            def test_was_published_recently_with_future_question(self):
+                """
+                was_published_recently() returns False for questions whose pub_date
+                is in the future.
+                """
+                time = timezone.now() + datetime.timedelta(days=30)
+                future_question = Question(pub_date=time)
+                self.assertIs(future_question.was_published_recently(), False)
 
 2. Running tests
 
-    > python manage.py test polls
+    *> python manage.py test polls*
 
 3. Fixing the bug
 
-`polls/models.py`
+    `polls/models.py`
 
-    def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+        def was_published_recently(self):
+            now = timezone.now()
+            return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 4. More comprehensive tests
 
-`polls/tests.py`
+    `polls/tests.py`
 
-    def test_was_published_recently_with_old_question(self):
-        """
-        was_published_recently() returns False for questions whose pub_date
-        is older than 1 day.
-        """
-        time = timezone.now() - datetime.timedelta(days=1, seconds=1)
-        old_question = Question(pub_date=time)
-        self.assertIs(old_question.was_published_recently(), False)
-
-    def test_was_published_recently_with_recent_question(self):
-        """
-        was_published_recently() returns True for questions whose pub_date
-        is within the last day.
-        """
-        time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
-        recent_question = Question(pub_date=time)
-        self.assertIs(recent_question.was_published_recently(), True)
+        def test_was_published_recently_with_old_question(self):
+            """
+            was_published_recently() returns False for questions whose pub_date
+            is older than 1 day.
+            """
+            time = timezone.now() - datetime.timedelta(days=1, seconds=1)
+            old_question = Question(pub_date=time)
+            self.assertIs(old_question.was_published_recently(), False)
+    
+        def test_was_published_recently_with_recent_question(self):
+            """
+            was_published_recently() returns True for questions whose pub_date
+            is within the last day.
+            """
+            time = timezone.now() - datetime.timedelta(hours=23, minutes=59, seconds=59)
+            recent_question = Question(pub_date=time)
+            self.assertIs(recent_question.was_published_recently(), True)
 
 ------------------------------------------------------------------------------------
 ### Test a view
 
 1. it examines some additional attributes on responses such as response.context.
 
->>> from django.test.utils import setup_test_environment
->>> setup_test_environment()
+    *>>> from django.test.utils import setup_test_environment*
+    
+    *>>> setup_test_environment()*
 
 2.  import the test client class
 
->>> from django.test import Client
->>> ##### create an instance of the client for our use
->>> client = Client()
+    *>>> from django.test import Client*
+    
+    *>>> # create an instance of the client for our use*
+    
+    *>>> client = Client()*
 
 3.  ask the client to do some work:
 
->>> ##### get a response from '/'
->>> response = client.get('/')
-Not Found: /
->>> ##### we should expect a 404 from that address; if you instead see an
->>> ##### "Invalid HTTP_HOST header" error and a 400 response, you probably
->>> ##### omitted the setup_test_environment() call described earlier.
->>> response.status_code
-404
->>> ##### on the other hand we should expect to find something at '/polls/'
->>> ##### we'll use 'reverse()' rather than a hardcoded URL
->>> from django.urls import reverse
->>> response = client.get(reverse('polls:index'))
->>> response.status_code
-200
->>> response.content
-'<ul><li><a href="/polls/1/">What&#39;s up?</a></li></ul>'
->>> response.context['latest_question_list']
-<QuerySet [<Question: What's up?>]>
+    *>>> ##### get a response from '/'*
+    
+    *>>> response = client.get('/')*
+    
+    Not Found: /
+    
+    *>>> # we should expect a 404 from that address; if you instead see an*
+    
+    *>>> # "Invalid HTTP_HOST header" error and a 400 response, you probably*
+    
+    *>>> # omitted the setup_test_environment() call described earlier.*
+    
+    *>>> response.status_code*
+    
+    404
+    
+    *>>> # on the other hand we should expect to find something at '/polls/'*
+    
+    *>>> # we'll use 'reverse()' rather than a hardcoded URL*
+    
+    *>>> from django.urls import reverse*
+    
+    *>>> response = client.get(reverse('polls:index'))*
+    
+    *>>> response.status_code*
+    
+    200
+    
+    *>>> response.content*
+    
+    `<ul><li><a href="/polls/1/">What's up?</a></li></ul>`
+    
+    *>>> response.context['latest_question_list']*
+    
+    <QuerySet [<Question: What's up?>]>
 
 ------------------------------------------------------------------------------------
 ### Improving our view
@@ -221,4 +241,4 @@ Not Found: /
 ------------------------------------------------------------------------------------
 ### Further testing
 
- `"in-browser" framework : Selenium http://www.seleniumhq.org/`
+ [in browser framework - Selenium](http://www.seleniumhq.org/)
