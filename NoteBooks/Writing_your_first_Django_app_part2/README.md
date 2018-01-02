@@ -149,40 +149,60 @@ datetime.datetime(2017, 12, 29, 2, 51, 48, 641367, tzinfo=<UTC>)
             return self.choice_text
 
 >>> from polls.models import Question, Choice
+
 >>> Question.objects.all()
 <QuerySet [<Question: What's up?>]>
+
 >>> Question.objects.filter(id=1)
 <QuerySet [<Question: What's up?>]>
+
 >>> Question.objects.filter(question_text__startswith='What')
 <QuerySet [<Question: What's up?>]>
+
 >>> from django.utils import timezone
+
 >>> current_year = timezone.now().year
+
 >>> Question.objects.get(pub_date__year=current_year)
 <Question: What's up?>
+
 >>> Question.objects.get(id=2)
 ...
 polls.models.DoesNotExist: Question matching query does not exist.
+
 >>> Question.objects.get(pk=1)
 <Question: What's up?>
+
 >>> q = Question.objects.get(pk=1)
+
 >>> q.was_published_recently()
 True
+
 >>> q.choice_set.all()
 <QuerySet []>
+
 >>> q.choice_set.create(choice_text='Not much', votes=0)
 <Choice: Not much>
+
 >>> q.choice_set.create(choice_text='The sky', votes=0)
 <Choice: The sky>
+
 >>> c = q.choice_set.create(choice_text='Just hacking again', votes=0)
+
 >>> c.question
 <Question: What's up?>
+
 >>> q.choice_set.all()
 <QuerySet [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]>
+
 >>> q.choice_set.count()
 3
+
 >>> Choice.objects.filter(question__pub_date__year=current_year)
 <QuerySet [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]>
+
 >>> c = q.choice_set.filter(choice_text__startswith='Just hacking')
+
 >>> c.delete()
 (1, {'polls.Choice': 1})
 
