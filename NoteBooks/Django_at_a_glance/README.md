@@ -22,83 +22,92 @@
 ------------------------------------------------------------------------------------
 ### Install it (create the database tables automatically)
 
-&gt;&gt;&gt;python manage.py migrate
+__>>> python manage.py migrate__
 
 `*migrations: https://docs.djangoproject.com/en/2.0/topics/migrations/`
 
 ------------------------------------------------------------------------------------
 ### Enjoy the free API
 
-&gt;&gt;&gt; python manage.py shell
+__>>> python manage.py shell__
 
 ##### Import the models we created from our "news" app
-&gt;&gt;&gt; from news.models import Reporter, Article
+__>>> from news.models import Reporter, Article__
 
 ##### No reporters are in the system yet.
-&gt;&gt;&gt; Reporter.objects.all()
+__>>> Reporter.objects.all()__
 <QuerySet []>
 
 ##### Create a new Reporter.
-&gt;&gt;&gt; r = Reporter(full_name='John Smith')
+__>>> r = Reporter(full_name='John Smith')__
 
 ##### Save the object into the database. You have to call save() explicitly.
-&gt;&gt;&gt; r.save()
+__>>> r.save()__
 
 ##### Now it has an ID.
-&gt;&gt;&gt; r.id
+__>>> r.id__
 1
 
 ##### Now the new reporter is in the database.
-&gt;&gt;&gt; Reporter.objects.all()
+__>>> Reporter.objects.all()__
 <QuerySet [<Reporter: John Smith>]>
 
 ##### Fields are represented as attributes on the Python object.
-&gt;&gt;&gt; r.full_name
+__>>> r.full_name__
 'John Smith'
 
 ##### Django provides a rich database lookup API.
-&gt;&gt;&gt; Reporter.objects.get(id=1)
+__>>> Reporter.objects.get(id=1)__
 <Reporter: John Smith>
-&gt;&gt;&gt; Reporter.objects.get(full_name__startswith='John')
+
+__>>> Reporter.objects.get(full_name__startswith='John')__
 <Reporter: John Smith>
-&gt;&gt;&gt; Reporter.objects.get(full_name__contains='mith')
+
+__>>> Reporter.objects.get(full_name__contains='mith')__
 <Reporter: John Smith>
-&gt;&gt;&gt; Reporter.objects.get(id=2)
+
+__>>> Reporter.objects.get(id=2)__
 Traceback (most recent call last):
     ...
 DoesNotExist: Reporter matching query does not exist.
 
 ##### Create an article.
-&gt;&gt;&gt; from datetime import date
-&gt;&gt;&gt; a = Article(pub_date=date.today(), headline='Django is cool',
-...     content='Yeah.', reporter=r)
-&gt;&gt;&gt; a.save()
+__>>> from datetime import date__
+
+__>>> a = Article(pub_date=date.today(), headline='Django is cool',__
+__...     content='Yeah.', reporter=r)__
+
+__>>> a.save()__
 
 ##### Now the article is in the database.
-&gt;&gt;&gt; Article.objects.all()
+__>>> Article.objects.all()__
 <QuerySet [<Article: Django is cool>]>
 
 ##### Article objects get API access to related Reporter objects.
-&gt;&gt;&gt; r = a.reporter
-&gt;&gt;&gt; r.full_name
+__>>> r = a.reporter__
+
+__>>> r.full_name__
 'John Smith'
 
 ##### And vice versa: Reporter objects get API access to Article objects.
-&gt;&gt;&gt; r.article_set.all()
+__>>> r.article_set.all()__
 <QuerySet [<Article: Django is cool>]>
 
 ##### The API follows relationships as far as you need, performing efficient
 ##### JOINs for you behind the scenes.
 ##### This finds all articles by a reporter whose name starts with "John".
-&gt;&gt;&gt; Article.objects.filter(reporter__full_name__startswith='John')
+
+__>>> Article.objects.filter(reporter__full_name__startswith='John')__
+
 <QuerySet [<Article: Django is cool>]>
 
 ##### Change an object by altering its attributes and calling save().
-&gt;&gt;&gt; r.full_name = 'Billy Goat'
-&gt;&gt;&gt; r.save()
+__>>> r.full_name = 'Billy Goat'__
+
+__>>> r.save()__
 
 ##### Delete an object with delete().
-&gt;&gt;&gt; r.delete()
+__>>> r.delete()__
 
 ------------------------------------------------------------------------------------
 ### registering your model in the admin site
