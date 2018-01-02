@@ -1,4 +1,4 @@
-##### create tests
+### create tests
 
 1. Create a test to expose the bug
   
@@ -58,7 +58,7 @@
         self.assertIs(recent_question.was_published_recently(), True)
 
 ------------------------------------------------------------------------------------
-##### Test a view
+### Test a view
 
 1. it examines some additional attributes on responses such as response.context.
 
@@ -68,7 +68,7 @@
 2.  import the test client class
 
 >>> from django.test import Client
->>> # create an instance of the client for our use
+>>> ##### create an instance of the client for our use
 >>> client = Client()
 
 3.  ask the client to do some work:
@@ -76,24 +76,24 @@
 >>> # get a response from '/'
 >>> response = client.get('/')
 Not Found: /
->>> # we should expect a 404 from that address; if you instead see an
->>> # "Invalid HTTP_HOST header" error and a 400 response, you probably
->>> # omitted the setup_test_environment() call described earlier.
+>>> ##### we should expect a 404 from that address; if you instead see an
+>>> ##### "Invalid HTTP_HOST header" error and a 400 response, you probably
+>>> ##### omitted the setup_test_environment() call described earlier.
 >>> response.status_code
 404
->>> # on the other hand we should expect to find something at '/polls/'
->>> # we'll use 'reverse()' rather than a hardcoded URL
+>>> ##### on the other hand we should expect to find something at '/polls/'
+>>> ##### we'll use 'reverse()' rather than a hardcoded URL
 >>> from django.urls import reverse
 >>> response = client.get(reverse('polls:index'))
 >>> response.status_code
 200
 >>> response.content
-b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n    \n    </ul>\n\n'
+##### b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n    \n    </ul>\n\n'
 >>> response.context['latest_question_list']
 <QuerySet [<Question: What's up?>]>
 
 ------------------------------------------------------------------------------------
-##### Improving our view
+### Improving our view
 
 `polls/views.py`
 
@@ -109,7 +109,7 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n   
         ).order_by('-pub_date')[:5]
 
 ------------------------------------------------------------------------------------
-##### Testing our new view
+### Testing our new view
 
 `polls/tests.py`
 
@@ -183,7 +183,7 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n   
             )
 
 ------------------------------------------------------------------------------------
-##### Testing the DetailView
+### Testing the DetailView
 
 `polls/views.py`
 
@@ -218,6 +218,7 @@ b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n   
             response = self.client.get(url)
             self.assertContains(response, past_question.question_text)
 
-##### Further testing
+------------------------------------------------------------------------------------
+### Further testing
 
  `"in-browser" framework : Selenium http://www.seleniumhq.org/`
