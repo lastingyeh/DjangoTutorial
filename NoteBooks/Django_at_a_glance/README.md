@@ -1,4 +1,4 @@
-##### Design your model
+### Design your model
 
 `mysite/news/models.py`
 
@@ -20,14 +20,14 @@
             return self.headline
 
 ------------------------------------------------------------------------------------
-##### Install it (create the database tables automatically)
+### Install it (create the database tables automatically)
 
 >>>python manage.py migrate
 
 `*migrations: https://docs.djangoproject.com/en/2.0/topics/migrations/`
 
 ------------------------------------------------------------------------------------
-##### Enjoy the free API
+### Enjoy the free API
 
 >>>python manage.py shell
 
@@ -101,7 +101,7 @@ DoesNotExist: Reporter matching query does not exist.
 >>> r.delete()
 
 ------------------------------------------------------------------------------------
-##### registering your model in the admin site
+### registering your model in the admin site
 
 `mysite/news/admin.py`
 
@@ -111,7 +111,7 @@ DoesNotExist: Reporter matching query does not exist.
     admin.site.register(models.Article)
 
 ------------------------------------------------------------------------------------
-##### Design your URLs
+### Design your URLs
 
 `mysite/news/urls.py`
 
@@ -128,7 +128,7 @@ ex: equested the URL `/articles/2005/05/39323/` ->
   call function `news.views.article_detail(request, year=2005, month=5, pk=39323)`
 
 ------------------------------------------------------------------------------------
-##### Write your views
+### Write your views
 
 `mysite/news/views.py`
 
@@ -141,7 +141,7 @@ ex: equested the URL `/articles/2005/05/39323/` ->
         return render(request, 'news/year_archive.html', context)
 
 ------------------------------------------------------------------------------------
-##### Design your templates
+### Design your templates
 
 `mysite/news/templates/news/year_archive.html`
 
@@ -162,7 +162,7 @@ ex: equested the URL `/articles/2005/05/39323/` ->
 `*data filter format: https://docs.djangoproject.com/en/2.0/howto/custom-template-tags/#howto-writing-custom-template-filters`
 
 ------------------------------------------------------------------------------------
-##### Design Templat for common-use
+### Design Templat for common-use
 
 `mysite/templates/base.html`
 
@@ -181,7 +181,7 @@ ex: equested the URL `/articles/2005/05/39323/` ->
 
 ------------------------------------------------------------------------------------
 
-##### Appendix
+### Appendix
 
 ##### Migrations
 

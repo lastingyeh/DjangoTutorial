@@ -73,7 +73,7 @@
 
 3.  ask the client to do some work:
 
->>> # get a response from '/'
+>>> ##### get a response from '/'
 >>> response = client.get('/')
 Not Found: /
 >>> ##### we should expect a 404 from that address; if you instead see an
@@ -88,7 +88,7 @@ Not Found: /
 >>> response.status_code
 200
 >>> response.content
-##### b'\n    <ul>\n    \n        <li><a href="/polls/1/">What&#39;s up?</a></li>\n    \n    </ul>\n\n'
+'<ul><li><a href="/polls/1/">What&#39;s up?</a></li></ul>'
 >>> response.context['latest_question_list']
 <QuerySet [<Question: What's up?>]>
 

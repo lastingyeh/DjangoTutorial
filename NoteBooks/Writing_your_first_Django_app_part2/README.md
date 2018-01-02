@@ -1,4 +1,4 @@
-##### Database setup
+### Database setup
 
 `mysite/settings.py`
 
@@ -7,7 +7,7 @@
 `*reference documentation : https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-DATABASES`
 
 ------------------------------------------------------------------------------------
-##### TIME_ZONE
+### TIME_ZONE
 
 `mysite/settings.py`
 
@@ -16,7 +16,7 @@
 Note : at Windows environment. TIME_ZONE must be set to match the system time zone.
 
 ------------------------------------------------------------------------------------
-##### INSTALLED_APPS 
+### INSTALLED_APPS 
 
 django.contrib.admin – The admin site. You’ll use it shortly.
 
@@ -31,7 +31,7 @@ django.contrib.messages – A messaging framework.
 django.contrib.staticfiles – A framework for managing static files.
 
 ------------------------------------------------------------------------------------
-##### create the tables in the database before we can use them.
+### create the tables in the database before we can use them.
 
 creates any necessary database tables according to the database settings in your mysite/settings.py file 
 and the database migrations shipped with the app
@@ -39,7 +39,7 @@ and the database migrations shipped with the app
 > python manage.py migrate
 
 ------------------------------------------------------------------------------------
-##### Creating models
+### Creating models
 
 `polls/models.py`
 
@@ -56,7 +56,7 @@ and the database migrations shipped with the app
         votes = models.IntegerField(default=0)
 
 ------------------------------------------------------------------------------------
-##### Activating models
+### Activating models
 
 1. `mysite/settings.py`
 
@@ -88,14 +88,14 @@ checks for any problems in your project without making migrations or touching th
 create those model tables in your database
 
 ------------------------------------------------------------------------------------
-##### Three-step guide to making model changes
+### Three-step guide to making model changes
 
 *Change your models (in models.py)
 *Run python manage.py makemigrations to create migrations for those changes
 *Run python manage.py migrate to apply those changes to the database.
 
 ------------------------------------------------------------------------------------
-##### Playing with the API
+### Playing with the API
 
 > python manage.py shell
 
@@ -187,7 +187,7 @@ True
 (1, {'polls.Choice': 1})
 
 ------------------------------------------------------------------------------------
-##### Introducing the Django Admin
+### Introducing the Django Admin
 
 1. Creating an admin user
 

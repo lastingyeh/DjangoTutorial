@@ -1,4 +1,4 @@
-##### Write a simple form
+### Write a simple form
 
 `polls/templates/polls/detail.html`
 
@@ -18,14 +18,14 @@
 * forloop.counter indicates how many times the for tag has gone through its loop
 
 ------------------------------------------------------------------------------------
-##### Create a Django view that handles the submitted data
+### Create a Django view that handles the submitted data
 
 `polls/urls.py`
 
     path('<int:question_id>/vote/', views.vote, name='vote'),
 
 ------------------------------------------------------------------------------------
-##### Created a dummy implementation of the vote() function.
+### Created a dummy implementation of the vote() function.
 
 `polls/views.py`
 
@@ -54,7 +54,7 @@
             return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 ------------------------------------------------------------------------------------
-##### Write vote() view redirects to the results page for the question.
+### Write vote() view redirects to the results page for the question.
 
 `polls/views.py`
 
@@ -65,7 +65,7 @@
         return render(request, 'polls/results.html', {'question': question})
 
 ------------------------------------------------------------------------------------
-##### Create a polls/results.html template
+### Create a polls/results.html template
 
 `polls/templates/polls/results.html`
 
@@ -80,7 +80,7 @@
     <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
 
 ------------------------------------------------------------------------------------
-##### Process Flow
+### Process Flow
 
 (browser) http://127.0.0.1:8000/polls/1/ -> (polls/views) views.detail -> 
 (templates/polls) polls/detail.html -> 'Submit' -> /polls/1/vote/ -> (polls/views) views.vote
@@ -88,14 +88,14 @@
 -> 'Error' -> (templates/polls) polls/detail.html
 
 ------------------------------------------------------------------------------------
-##### Avoiding race conditions
+### Avoiding race conditions
 
 If two users of your website try to vote at exactly the same time, this might go wrong: The same value, let’s say 42, will be retrieved for votes. Then, for both users the new value of 43 is computed and saved, but 44 would be the expected value.
 
 `Avoiding race conditions using F() : https://docs.djangoproject.com/en/2.0/ref/models/expressions/#avoiding-race-conditions-using-f`
 
 ------------------------------------------------------------------------------------
-##### Use generic views: Less code is better
+### Use generic views: Less code is better
 
 1. Amend URLconf
 

@@ -1,4 +1,4 @@
-##### Writing more views
+### Writing more views
 
 `polls/views.py`
 
@@ -31,7 +31,7 @@
     ]
 
 ------------------------------------------------------------------------------------
-##### Write views that actually do something
+### Write views that actually do something
 
 `polls/views.py`
 
@@ -141,7 +141,7 @@ By convention DjangoTemplates looks for a “templates” subdirectory in each o
 * There’s also a get_list_or_404() function – except using filter() instead of get(). It raises Http404 if the list is empty.
 
 ------------------------------------------------------------------------------------
-##### Use the template system
+### Use the template system
 
 `polls/templates/polls/detail.html`
 
@@ -153,7 +153,7 @@ By convention DjangoTemplates looks for a “templates” subdirectory in each o
     </ul>
 
 ------------------------------------------------------------------------------------
-##### Removing hardcoded URLs in templates
+### Removing hardcoded URLs in templates
 
 `polls/templates/polls/index.html`
 
@@ -173,7 +173,7 @@ added the word 'specifics'
     path('specifics/<int:question_id>/', views.detail, name='detail'),
 
 ------------------------------------------------------------------------------------
-##### Namespacing URL names
+### Namespacing URL names
 
 1. add namespace
 

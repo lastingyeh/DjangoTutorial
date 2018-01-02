@@ -1,14 +1,14 @@
-#####  Tell Django is installed and which version by running at this env.
+###  Tell Django is installed and which version by running at this env.
 
 > python -m django --version
 
 ------------------------------------------------------------------------------------
-##### Creating a project
+### Creating a project
 
 > django-admin startproject mysite
 
 ------------------------------------------------------------------------------------
-##### Let’s look at what startproject created:
+### Let’s look at what startproject created:
 
 `*manage.py : https://docs.djangoproject.com/en/2.0/ref/django-admin/`
 
@@ -19,14 +19,14 @@
 `*mysite/wsgi.py : https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/`
 
 ------------------------------------------------------------------------------------
-##### The development server
+### The development server
 
 > python manage.py runserver
 
 *Note : Ignore the warning about unapplied database migrations for now; we’ll deal with the database shortly.
 
 ------------------------------------------------------------------------------------
-##### visit http://127.0.0.1:8000/ with your Web browser
+### visit http://127.0.0.1:8000/ with your Web browser
 
 *Note : Changing the port
 
@@ -39,12 +39,12 @@
 `*0 is a shortcut for 0.0.0.0 : https://docs.djangoproject.com/en/2.0/ref/django-admin/#django-admin-runserver`
 
 ------------------------------------------------------------------------------------
-##### Creating the Polls app
+### Creating the Polls app
 
 > python manage.py startapp polls
 
 ------------------------------------------------------------------------------------
-##### Write your first view
+### Write your first view
 
 `polls/views.py`
 
