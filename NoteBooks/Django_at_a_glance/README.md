@@ -143,8 +143,9 @@ DoesNotExist: Reporter matching query does not exist.
         path('articles/<int:year>/<int:month>/<int:pk>/', views.article_detail),
     ]
 
-    *ex: equested the URL `/articles/2005/05/39323/` -> *
-      *call function `news.views.article_detail(request, year=2005, month=5, pk=39323)`*
+s1. ex: equested the URL '/articles/2005/05/39323/'
+
+s2. call function 'news.views.article_detail(request, year=2005, month=5, pk=39323)'
 
 ------------------------------------------------------------------------------------
 ### Write your views
