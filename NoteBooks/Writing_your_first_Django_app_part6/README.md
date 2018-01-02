@@ -25,10 +25,11 @@ s2. create a file called style.css that should be at polls/static/polls/style.cs
         background: white url("images/background.png") no-repeat right bottom;
     }
 
+------------------------------------------------------------------------------------
 ### Advance
 
-[Managing static files](https://docs.djangoproject.com/en/2.0/howto/static-files/)
+1. [Managing static files](https://docs.djangoproject.com/en/2.0/howto/static-files/)
 
-[The staticfiles reference](https://docs.djangoproject.com/en/2.0/ref/contrib/staticfiles/)
+2. [The staticfiles reference](https://docs.djangoproject.com/en/2.0/ref/contrib/staticfiles/)
 
-[Deploying static files](https://docs.djangoproject.com/en/2.0/howto/static-files/deployment/)
+3. [Deploying static files](https://docs.djangoproject.com/en/2.0/howto/static-files/deployment/)
