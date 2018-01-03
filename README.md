@@ -2,10 +2,15 @@
 
 #### Project
 
-    create mysite in virtual env
+    mysite
 
-#### NoteBooks
+#### Notes README
 
-    notes by all tutorials
+    NoteBooks
 
-##### refs by https://docs.djangoproject.com/en/2.0/intro/
+#### Package Reusable
+
+    django-polls
+
+
+[Note Refs:](https://docs.djangoproject.com/en/2.0/intro/) 
