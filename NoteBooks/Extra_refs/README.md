@@ -48,7 +48,7 @@
 
     > source ~/.virtualenvs/djangodev/bin/activate
 
-* if the source command is not available.
+    if the source command is not available.
 
     > . ~/.virtualenvs/djangodev/bin/activate
 
