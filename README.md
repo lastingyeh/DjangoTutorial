@@ -13,4 +13,4 @@
     django-polls
 
 
-[Note Refs:](https://docs.djangoproject.com/en/2.0/intro/) 
+[Note Refs by django official Documentation.](https://docs.djangoproject.com/en/2.0/intro/) 
