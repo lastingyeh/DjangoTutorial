@@ -130,15 +130,15 @@ _DIRS is a list of filesystem directories to check when loading Django templates
 
 __Where are the Django source files?__ : 
 
-    *> python -c "import django; print(django.__path__)"*
+    > python -c "import django; print(django.__path__)"
 
 ##### How to override templates
 
 s1. create mysite/templates/admin/base_site.html 
 
-s2. copy content from 'django/contrib/admin/templates/base_site.html
+s2. copy content from 'django/contrib/admin/templates/base_site.html'
 
-s3. modofiy content above:
+s3. replace by below:
 
     {% block branding %}
     <h1 id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></h1>
