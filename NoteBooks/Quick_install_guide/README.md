@@ -1,24 +1,24 @@
 ### create virtual env
 
-> virtual [env-name]
+    > virtualenv [env-name]
 
 ------------------------------------------------------------------------------------
 ### activate virtual env 
 
-> source [env-name]/bin/activate
+    > source [env-name]/bin/activate
 
 ------------------------------------------------------------------------------------
 ### install Django
 
-([env-name]) > pip install Django==2.0
+    ([env-name]) > pip install Django==2.0
 
 ------------------------------------------------------------------------------------
 ### check version of Django
 
-*> python*
+    > python
 
-*>>> import django*
+    >>> import django
 
-*>>> django.get_version()*
+    >>> django.get_version()
 
-'2.0' 
+    '2.0' 
